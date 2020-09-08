@@ -1,0 +1,43 @@
+﻿<Window x:Class="RustGuiEditor.ProjectSettings"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        xmlns:local="clr-namespace:RustGuiEditor"
+        
+        mc:Ignorable="d"
+        Title="Настройки проекта" Width="350" ResizeMode="NoResize" SizeToContent="Height">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" 
+               HorizontalContentAlignment="Center" FontSize="15" FontWeight="Bold">Настройки проекта</Label>
+
+        <Label Grid.Row="1" Grid.Column="0">ID основной панели:</Label>
+        <TextBox Grid.Row="1" Grid.Column="1" Margin="1" Text="{Binding Path=RootId}"></TextBox>
+
+        <Label Grid.Row="2" Grid.Column="0">Родительский элемент:</Label>
+        <ComboBox Grid.Row="2" Grid.Column="1" Margin="1" ItemsSource="{Binding Path=PlaneList}" SelectedValue="{Binding Path=RootPlane}">
+        </ComboBox>
+
+        <Label Grid.Row="3" Grid.Column="0">Цвет основной панели:</Label>
+        <xctk:ColorPicker  Grid.Row="3" Grid.Column="1" Margin="1" SelectedColor="{Binding Path=RootColor}"></xctk:ColorPicker>
+
+        <Label Grid.Row="4" Grid.Column="0">Показывать курсор:</Label>
+        <CheckBox Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" IsChecked="{Binding Path=ShowCursor}"></CheckBox>
+
+        <Button Grid.Row="5" Grid.ColumnSpan="2" Click="CloseSettings" Margin="0 10 0 0">Сохранить</Button>
+    </Grid>
+</Window>
